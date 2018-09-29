@@ -10,7 +10,7 @@ if(isset($_GET["page"]) && isset($_GET["subject"])){
 	$subject = $_GET["subject"];
 	
 	$sql = "SELECT _id, b_title, b_content, b_time, b_user FROM boards where b_subject = {$subject}";
-	$sql.= " order by _id desc LIMIT {$page}, 10" ;
+	$sql.= " order by _id desc" ;
 
 	$res = $dbconnect -> query($sql);
 
@@ -25,11 +25,10 @@ if(isset($_GET["page"]) && isset($_GET["subject"])){
 		array_push($res_board_list, $var);
 	}
 	?>
-	<pre>
 	<?php
 	echo json_encode($res_board_list, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
 	?>
-	</pre><?php
+	<?php
 }
 else{
 	$res_board_list = "no request parameter";

@@ -29,5 +29,7 @@ include_once "../session.php";
 		}
 	}
 	
+
+	echo "fail";
 	
 ?>

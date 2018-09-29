@@ -11,15 +11,15 @@ if(isset($_POST["title"]) && isset($_POST["content"]) && isset($_POST["subject"]
 	$subject = $_POST["subject"];
 	$user = $_SESSION["user"];
 
-	$sql = "INSERT INTO `boards`(`_id`, `b_title`, `b_content`, `b_time`, `b_user`, `b_subject`) VALUES";
-	$sql .= "('', '{$title}', '{$content}', now(), '{$user}', {$subject})";
+	$sql = "INSERT INTO boards(b_title, b_content, b_time, b_user, b_subject) VALUES ";
+	$sql .= "('{$title}', '{$content}', now(), '{$user}', {$subject})";
 
 	$res = $dbconnect -> query($sql);
 
 	if($res)
 		$board_write_res = "ok";
 	else
-		$board_write_res = "fail2";
+		$board_write_res = "fail2, ".$user;
 	
 	#$file_path = $file_path . basename( $_FILES['uploaded_file']['name']);
     	

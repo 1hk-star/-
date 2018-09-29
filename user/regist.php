@@ -16,7 +16,7 @@
 	if($result){
 		while($row = mysqli_fetch_assoc($result)){
 			if(isset($row['u_id']) && $row['u_id'] != ''){
-				echo json_encode(['regist_res' => 2]);
+				echo "2";
 				exit;
 			}
 		}
@@ -28,7 +28,7 @@
 	if($result){
 		while($row = mysqli_fetch_assoc($result)){
 			if(isset($row['u_nick']) && $row['u_nick'] != ''){
-				echo json_encode(['regist_res' => 3]);
+				echo "2";
 				exit;
 			}
 		}
@@ -40,7 +40,7 @@
 	$sql = "INSERT INTO `users` (`_id`, `u_id`, `u_nick_name`, `u_password`) VALUES ('0', '".$user."', '".$nick_name."', '".$password."')";
 	$result = mysqli_query($conn, $sql);
 	if($result){
-		echo json_encode(['regist_res' => 1]);
+		echo "1";
 	}
 	exit;
 ?>

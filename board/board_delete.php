@@ -22,6 +22,7 @@ if(isset($_POST['board_id'])){
 	}
 	else
 		echo "세션이랑 글 작성자가 달라";
+		echo $_SESSION['user'].", ".$row['b_user'];
 	
 	/*
 	$board_id = $_POST'board_id'];
